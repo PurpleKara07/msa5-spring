@@ -5,8 +5,4 @@ spring:
    error:
      include-stacktrace: never
      include-message: never
-logging:
-  level:
-    root: info
-    org.msa.msa5spring: debug
-debug: true
+
