@@ -40,6 +40,7 @@ public class GlobalExceptionHandler {
                         // 기존값 / 새로운값 -> 기존값
                         (existing, replacement) -> existing // 키가 중복됐을때 처리
                 ));
+        log.debug("{}\n{}", "*** 유효성 체크 에러 ***", errors);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
             new GlobalResponseDTO<>(
                     "E01",
@@ -56,7 +57,7 @@ public class GlobalExceptionHandler {
         log.debug("디버그 로깅");
         log.info("인포 로깅");
         log.warn("워닝 로깅");
-        log.error("에러 로깅");
+        log.error("에러 로깅", e);
 
         return ResponseEntity.status(500).body(
             new GlobalResponseDTO<>(
